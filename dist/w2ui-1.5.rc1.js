@@ -2021,7 +2021,7 @@ w2utils.event = {
                     .attr('style', options.style)
                     .addClass(options.className)
                     .html(options.html);
-                checkIfMoved(true);
+                checkIfMoved(true,true);
             } else {
                 var originalCSS = '';
                 if ($(el).length > 0) originalCSS = $(el)[0].style.cssText;
@@ -2041,7 +2041,7 @@ w2utils.event = {
             setTimeout(function () {
                 $tags.css('display', 'block');
                 if (!$(el).offset()) return;
-                var pos = checkIfMoved(true);
+                var pos = checkIfMoved(true,true);
                 if (pos == null) return;
                 $tags.css({
                         opacity : '1',
@@ -2051,7 +2051,7 @@ w2utils.event = {
                     .data('options', options)
                     .data('taged-el', el)
                     .data('position', pos.left + 'x' + pos.top)
-                    .data('timer', setTimeout(checkIfMoved, 100))
+                    //.data('timer', setTimeout(checkIfMoved, 100))
                     .find('.w2ui-tag-body').addClass(pos['posClass']);
 
                 $(el).css(options.css)
